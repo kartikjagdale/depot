@@ -1,7 +1,8 @@
 <!DOCTYPE html>
+<!-- Author: VoidZero -->
 <html>
 <head>
-  <title>Depot</title>
+  <title>Pragprog Books Online Store</title>
   <%= stylesheet_link_tag    "application", media: "all",
     "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -9,7 +10,22 @@
 </head>
 <!-- START_HIGHLIGHT -->
 <body class='<%= controller.controller_name %>'>
-<!-- END_HIGHLIGHT -->
-<%= yield %>
+<div id="banner">
+	<%= image_tag("logo.png")%>
+	<%= @page_title || "Pragamatic Bookshelf" %>
+</div>
+	<div id ="columns">
+		<div id ="side">
+		<ul>
+			<li><a href="https://www....">Home</a></li>
+			<li><a href="https://www....">Questions</a></li>
+			<li><a href="https://www....">News</a></li>
+			<li><a href="https://www....">Contact</a></li>
+		</ul>
+		</div>
+		<div id="main">
+		<%= yield%>
+		</div>
+	</div>
 </body>
 </html>
