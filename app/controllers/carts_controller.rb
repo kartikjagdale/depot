@@ -1,8 +1,14 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
-
+  #The rescue_fromclause intercepts the exception raised by Cart.find()
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
   # GET /carts
   # GET /carts.json
+  def invalid_cart
+    logger.error "Attempt to access invalid cart #{params[:id]}"
+    redirect_to store_url, notice: 'Invalid Cart'
+  end
+
   def index
     @carts = Cart.all
   end
