@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/*.store is a class i.e atribute in css starting with dot(.) are class*/
+/* START_HIGHLIGHT */
 .store {
   h1 {
     margin: 0;
@@ -15,7 +15,7 @@
   /* An entry in the store catalog */
   .entry {
     overflow: auto;
-    margin-top: 1em; /*Notice the 'em' Tag*/
+    margin-top: 1em;
     border-bottom: 1px dotted #77d;
     min-height: 100px;
 
@@ -39,10 +39,6 @@
       margin-left: 100px;
       margin-top: 0.5em; 
       margin-bottom: 0.8em; 
-      /*For Add to Cart button*/
-      form, div {
-        display: inline
-      }
     }
 
     .price {
@@ -52,4 +48,4 @@
     }
   }
 }
-
+/* END_HIGHLIGHT */
