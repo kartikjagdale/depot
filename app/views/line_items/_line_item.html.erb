@@ -1,0 +1,11 @@
+<!--This is a partial template
+Any template starting with _ in rails is a partial template.
+
+_VoidZero
+-->
+
+<tr>
+<td><%= line_item.quantity %>&times</td>
+<td><%= line_item.product.title %></td>
+<td class="itme_price"><%=  number_to_currency(line_item.total_price)%> </td>
+</tr>

@@ -8,7 +8,7 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<!-- START_HIGHLIGHT -->
+
 <body class='<%= controller.controller_name %>'>
 <div id="banner">
 	<%= image_tag("logo.png")%>
@@ -16,6 +16,11 @@
 </div>
 	<div id ="columns">
 		<div id ="side">
+		<!--The below divison adds a cart option to the side bar -->
+		<div id = "cart">
+			<%= render @cart %>
+		</div>
+
 		<ul>
 			<li><a href="https://www....">Home</a></li>
 			<li><a href="https://www....">Questions</a></li>
