@@ -3,12 +3,12 @@ Any template starting with _ in rails is a partial template.
 
 _VoidZero
 -->
-<%if line_item == @current_item %>
-<tr id="current_item"> <!--this changes the most recently added items if to "current_item"-->
-<%else%>
+<% if line_item == @current_item %>
+<tr id="current_item">
+<% else %>
 <tr>
-<%end%>
-<td><%= line_item.quantity %>&times</td>
+<% end %>
+<td><%= line_item.quantity %>&times;</td>
 <td><%= line_item.product.title %></td>
-<td class="item_price"><%=  number_to_currency(line_item.total_price)%> </td>
+<td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
 </tr>
