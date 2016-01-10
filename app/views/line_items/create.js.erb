@@ -1,0 +1,15 @@
+/*
+What does the below script do:
+
+1. $('#cart') tells jQuery to find the HTML element with the id cart.
+2. the html() method is then called with a first argument of desired replcament
+for the contents of this element.
+3. render() method forms this content by calling it onteh @cart object.
+4. escape_javascript() helper method process teh output and 
+converts the string into format acceptable to JavaScript.
+
+__VoidZero
+*/
+
+
+$('#cart').html("<%= escape_javascript render(@cart) %>");
