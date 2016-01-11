@@ -1,3 +1,8 @@
+=begin
+This Cart Controler test.
+_VoidZero
+=end
+
 require 'test_helper'
 
 class CartsControllerTest < ActionController::TestCase
