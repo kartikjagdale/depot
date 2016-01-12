@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  skip_before_action :authorize, only: [:create, :update, :destroy]
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
   #The rescue_fromclause intercepts the exception raised by Cart.find()
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
