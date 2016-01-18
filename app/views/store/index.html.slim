@@ -1,0 +1,36 @@
+.large-12.expanded
+  //Cart column
+  .large-3.columns
+    #side
+      - if @cart
+        = hidden_div_if(@cart.line_items.empty?, id: 'cart') do
+          = render @cart
+      
+      - if session[:user_id]
+        ul.menu
+          li
+            = link_to 'Orders', orders_path
+          li
+            = link_to 'Products', products_path
+          li
+            = link_to 'Users', users_path
+        = button_to 'Logout', logout_path, method: :delete
+  .large-9.columns
+    - if notice
+      p#notice
+        = notice
+    h1
+      = t('.title_html')
+    hr
+    - cache ['store', Product.latest] do
+      - @products.each do |product|
+        - cache ['entry', product] do
+          .entry.product
+            = image_tag(product.image_url)
+            h3
+              = product.title
+            = sanitize(product.description)
+            .price_line
+              span.price
+                = number_to_currency(product.price)
+              = button_to t('.add_html'), line_items_path(product_id: product), remote: true, class: "alert tiny button"

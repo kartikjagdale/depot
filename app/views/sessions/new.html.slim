@@ -1,0 +1,18 @@
+.depot_form
+  - if flash[:alert]
+    p#notice
+      = flash[:alert]
+  = form_tag do
+    .row
+      .large-6.large-offset-3.columns.login-form
+        h3.medium-8.medium-offset-2
+          | Log In
+          hr
+        div.medium-8.medium-offset-2.columns
+          = label_tag :name, 'Name:'
+          = text_field_tag :name, params[:name]
+        div.medium-8.medium-offset-2.columns
+          = label_tag :password, 'Password:'
+          = password_field_tag :password, params[:password]
+        div.medium-12.columns
+          = submit_tag "Login", class: 'success button large-6 large-offset-3'

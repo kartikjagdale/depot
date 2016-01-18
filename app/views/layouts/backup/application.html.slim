@@ -1,0 +1,42 @@
+doctype html
+html[lang="en"]
+  head
+    meta[charset="utf-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    title
+      = content_for?(:title) ? yield(:title) : "foundation-rails"
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "vendor/modernizr"
+    = csrf_meta_tags
+  body class="#{controller.controller_name}"
+    //Navigation
+    nav.top-bar[data-topbar role="navigation"]
+      ul.title-area
+        li.name
+          h1
+            a[href="/index.html.erb"]
+              = image_tag("logo.png")
+      section.top-bar-section
+        ul.right
+          li
+            = form_tag store_path, class: 'locale' do
+              = select_tag 'set_locale', options_for_select(LANGUAGES, I18n.locale.to_s),onchange: 'this.form.submit()'
+              = submit_tag 'submit'
+              = javascript_tag "$('.locale input').hide()"
+        ul.left
+          li
+            a[href="http://www...."]
+              = t('.home')
+          li
+            a[href="http://www..../faq"]
+              = t('.questions')
+          li
+            a[href="http://www..../news"]
+              = t('.news')
+          li
+            a[href="http://www..../contact"]
+              = t('.contact')
+    br
+    #main
+      = yield
+    = javascript_include_tag "application"
