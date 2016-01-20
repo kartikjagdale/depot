@@ -28,7 +28,7 @@ gem 'coffee-script-source', '1.8.0'
 gem 'foundation-rails', '~> 6.1.1.1'
 #Slim
 gem 'slim'
-
+gem 'pry'
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
 

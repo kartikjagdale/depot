@@ -11,8 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.ui.effect-blind
 //= require jquery_ujs
-//= require foundation
+//= require jquery.ui.effect-blind
 //= require_tree .
-$(function(){ $(document).foundation(); });

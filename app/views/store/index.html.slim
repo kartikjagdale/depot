@@ -1,6 +1,6 @@
 .large-12.expanded
   //Cart column
-  .large-3.columns
+  .large-3.columns#cart_box class="#{@cart.line_items.empty? ? 'hide' : nil}"
     #side
       - if @cart
         = hidden_div_if(@cart.line_items.empty?, id: 'cart') do
@@ -15,7 +15,7 @@
           li
             = link_to 'Users', users_path
         = button_to 'Logout', logout_path, method: :delete
-  .large-9.columns
+  #products_list class="#{@cart.line_items.empty? ? 'large-9 large-centered  columns' : 'large-9 columns'}"
     - if notice
       p#notice
         = notice
@@ -33,4 +33,4 @@
             .price_line
               span.price
                 = number_to_currency(product.price)
-              = button_to t('.add_html'), line_items_path(product_id: product), remote: true, class: "alert tiny button"
+              = button_to t('.add_html'), line_items_path(product_id: product), remote: true, class: "alert tiny button add_to_cart"
