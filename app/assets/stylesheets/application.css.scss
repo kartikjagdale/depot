@@ -16,6 +16,9 @@
 
  *= require_tree .
  */
+
+$red: #E1332D;
+$white: #fff; 
 a {
     color: #FFF !important;
 }
@@ -133,15 +136,10 @@ a {
 
 .button{
   box-shadow: 0px 2px 5px #000;
-  &:hover{
-    //box-shadow: none;
-  }
+  line-height: 3px;
 }
 
 #cart, .product, .login-form{
   box-shadow: 0px 5px 10px #aaa;
   padding: 2rem;
-}
-body{
-  background-image:url('http://images7.alphacoders.com/320/320439.jpg');
 }
