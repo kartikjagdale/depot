@@ -29,4 +29,11 @@ class Cart < ActiveRecord::Base
 		line_items.to_a.sum {|item| item.total_price}
 	end
 
+	def cart_unlock cart
+		cart.line_items.each do |item|
+			product = Product.find_by(id: item.product_id)
+			product.available_quantity = product.available_quantity + item.quantity
+			product.save
+		end
+	end
 end

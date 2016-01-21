@@ -30,12 +30,12 @@ class LineItemsController < ApplicationController
   def create
     product = Product.find(params[:product_id])
     @line_item = @cart.add_product(product.id, params[:line_item][:quantity].to_i)
-    
-    
     respond_to do |format|
       if @line_item.save
+        product.available_quantity = product.available_quantity - params[:line_item][:quantity].to_i
+        product.save
         format.html { redirect_to store_url }
-        format.js { @line_item = @current_item }
+        format.js { @current_item = @line_item  }
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }
