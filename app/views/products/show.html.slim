@@ -16,6 +16,11 @@ p
   strong
     | Price:
   = @product.price
+p
+  strong
+    |Available Quantity
+  = @product.available_quantity
+
 = link_to 'Edit', edit_product_path(@product)
-|  | 
+|   
 = link_to 'Back', products_path

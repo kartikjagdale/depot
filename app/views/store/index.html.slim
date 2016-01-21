@@ -35,5 +35,5 @@
                 = number_to_currency(product.price)
               /= button_to t('.add_html'), line_items_path(product_id: product, quantity: 1), remote: true, class: "alert tiny button add_to_cart"
               = form_for @line_item, url: line_items_path(product_id: product) do |f|
-                = f.select :quantity, options_for_select([1,2,3])
+                = f.select :quantity, '1'..product.available_quantity.to_s
                 = f.submit "Add to cart", class: "tiny button"

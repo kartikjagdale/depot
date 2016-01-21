@@ -12,6 +12,8 @@
               = product.title
             dd
               = truncate(strip_tags(product.description), length: 80)
+            dt
+              = product.available_quantity
         td
           = button_to 'Show', product, method: :get, class: "tiny success button"
         td
