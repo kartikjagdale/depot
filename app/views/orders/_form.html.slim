@@ -2,8 +2,7 @@
   - if @order.errors.any?
     #error_explanation
       h2
-        =raw t('errors.template.header', count: @order.errors.count,
-        -         model: t('activerecord.models.order'))
+        =raw t('errors.template.header', count: @order.errors.count, model: t('activerecord.models.order'))
         | .
       p
         = t('errors.template.body')
@@ -26,7 +25,6 @@
   .field
     = f.label :pay_type, t('.pay_type')
     br
-    = f.select :pay_type, Order::PAYMENT_TYPES,
-    -                       promt: t('.pay_prompt_html')
+    = f.select :pay_type, Order::PAYMENT_TYPES,prompt: t('.pay_prompt_html')
   .actions
     = f.submit t('.submit')
