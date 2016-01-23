@@ -11,9 +11,17 @@
  * file per style scope.
  * 
  *= require_self
+
+  //= require foundation_and_overrides
+
  *= require_tree .
  */
 
+$red: #E1332D;
+$white: #fff; 
+a {
+    color: #FFF !important;
+}
 #banner {
   background: #9c9;
   padding: 10px;
@@ -99,7 +107,7 @@
     label {
       width: 5em;
       float: left;
-      text-align: right;
+      text-align: left;
       padding-top: 0.2em;
       margin-right: 0.1em;
       display: block;
@@ -117,5 +125,21 @@
 }
 .locale {
   float: right;
-  margin: -0.25em 0.1em; 
+  margin: -0.25em 0.1em;
+}
+
+.top-bar{
+  box-shadow: 0px 3px 10px #000;
+  height: 50px;
+  line-height: 50px;
+}
+
+.button{
+  box-shadow: 0px 2px 5px #000;
+  line-height: 3px;
+}
+
+#cart, .product, .login-form{
+  box-shadow: 0px 5px 10px #aaa;
+  padding: 2rem;
 }

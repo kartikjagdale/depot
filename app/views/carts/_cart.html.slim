@@ -1,0 +1,13 @@
+h4
+  = t('.title')
+.row
+	table.large-10
+	  = render(cart.line_items)
+	  tr.total_line
+	    td[colspan="2"]
+	      | Total
+	    td.total_cell
+	      = number_to_currency(cart.total_price)
+.row
+	= button_to t('.checkout'), new_order_path, method: :get, class: 'large-5 success button columns small'
+	= button_to t('.empty'), cart, method: :delete, data: { confirm: 'Are you sure?' }, class: 'large-5 large-offset-2 alert columns button small'

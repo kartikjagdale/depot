@@ -1,0 +1,43 @@
+.large-12.expanded
+  //Cart column
+  .large-3.columns#cart_box class="#{@cart.line_items.empty? ? 'hide' : nil}"
+    #side
+      - if @cart
+        = hidden_div_if(@cart.line_items.empty?, id: 'cart') do
+          = render @cart
+      
+      - if session[:user_id]
+        ul.menu
+          li
+            = link_to 'Orders', orders_path
+          li
+            = link_to 'Products', products_path
+          li
+            = link_to 'Users', users_path
+        = button_to 'Logout', logout_path, method: :delete
+  #products_list class="#{@cart.line_items.empty? ? 'large-12 large-centered  columns' : 'large-9 columns'}"
+    - if notice
+      p#notice
+        = notice
+    h1
+      = t('.title_html')
+    hr
+    - cache ['store', Product.latest] do
+      - @products.each do |product|
+        - cache ['entry', product] do
+          .entry.product
+            = image_tag(product.image_url)
+            h3
+              = product.title
+            = sanitize(product.description)
+            .price_line
+              span.price
+                = number_to_currency(product.price)
+              /= button_to t('.add_html'), line_items_path(product_id: product, quantity: 1), remote: true, class: "alert tiny button add_to_cart"
+              -if product.available_quantity >= 1
+                = form_for @line_item, url: line_items_path(product_id: product) do |f|
+                  = f.select :quantity, '1'..product.available_quantity.to_s
+                  = f.submit "Add to cart", class: "tiny button"
+              -else
+                span style="color:red"
+                  |Out of Stock 

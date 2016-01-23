@@ -1,0 +1,52 @@
+nav.top-bar[data-topbar role="navigation"]
+      ul.title-area
+        li.name
+          h1
+            a[href="/index.html.erb"]
+              = image_tag("logo.png")
+      section.top-bar-section
+        ul.right
+          li
+            = form_tag store_path, class: 'locale' do
+              = select_tag 'set_locale', options_for_select(LANGUAGES, I18n.locale.to_s),onchange: 'this.form.submit()'
+              = submit_tag 'submit'
+              = javascript_tag "$('.locale input').hide()"
+        ul.left
+          li
+            a[href="http://www...."]
+              = t('.home')
+          li
+            a[href="http://www..../faq"]
+              = t('.questions')
+          li
+            a[href="http://www..../news"]
+              = t('.news')
+          li
+            a[href="http://www..../contact"]
+              = t('.contact')
+    br
+    .top-bar
+      .top-bar-left
+        ul.dropdown.menu data-dropdown-menu="" 
+          li.menu-text Site Title
+          li.has-submenu
+            a href="#"  One
+            ul.submenu.menu.vertical data-submenu="" 
+              li
+                a href="#"  One
+              li
+                a href="#"  Two
+              li
+                a href="#"  Three
+          li
+            a href="#"  Two
+          li
+            a href="#"  Three
+      .top-bar-right
+        ul.menu
+          li
+            input placeholder="Search" type="search" /
+          li
+            button.button type="button"  Search
+
+
